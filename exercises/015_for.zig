@@ -10,13 +10,13 @@
 //
 const std = @import("std");
 
-pub fn prints( s: []u8) void
+fn myPrint(  str: []const u8) void
 {
-    std.debug.print(s, .{});
+    std.debug.print("{s}", .{str});
 }
 
 pub fn main() void {
-    const story = [_]u8{ 'h', 'h', 's', 'n', 'h' };
+   const story = [_]u8{ 'h', 'h', 's', 'n', 'h' };
 
     std.debug.print("A Dramatic Story: ", .{});
 
@@ -27,7 +27,7 @@ pub fn main() void {
     }
 
     std.debug.print("The End.\n", .{});
-    prints("foogazi");
+    myPrint("foogazi");
 }
 // Note that 'for' loops also work on things called "slices"
 // which we'll see later.
