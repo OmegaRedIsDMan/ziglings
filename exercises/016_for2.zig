@@ -17,7 +17,7 @@ const std = @import("std");
 
 pub fn main() void {
     // Let's store the bits of binary number 1101 in
-    // 'little-endian' order (least significant byte or bit first):
+    // 'little-endian' order (least significant byte first):
     const bits = [_]u8{ 1, 0, 1, 1 };
     var value: u32 = 0;
 
@@ -29,8 +29,7 @@ pub fn main() void {
         // Note that we convert the usize i to a u32 with
         // @intCast(), a builtin function just like @import().
         // We'll learn about these properly in a later exercise.
-        const i_u32: u32 = @intCast(i);
-        const place_value = std.math.pow(u32, 2, i_u32);
+        var place_value = std.math.pow(u32, 2, @intCast(u32, i));
         value += place_value * bit;
     }
 
